@@ -2,32 +2,33 @@
 #include <iostream>
 using namespace std;
 
-int sum(int left, int middle, int right) {
-    cout << "left\t" << left << endl;
-    cout << "middle\t" << middle << endl;
-    cout << "right\t" << right << endl;
-    return left + middle + right;
-}
-
-auto sumx(long a, long b) -> int {
-    if (a > 0) {
-        return 0l;
+inline namespace Parent {
+    namespace Child1 {
+        void foo () {
+            cout << "This is Child1" << endl;
+        }
     }
-    return a + b;
+
+    inline namespace Child2 {
+        void foo () {
+            cout << "This is Child2" << endl;
+        }
+    }
 }
 
-int main() {
+// 嵌套namespace的简写
+namespace Parent::Child1 {
+    void foo2() {
+        cout << "This is Child1 foo next" << endl;
+    }
+}
 
-    auto func = [](auto num1, auto num2)->auto {return num1 + num2;};
-    auto res1 = func(1, 2);
-    auto res2 = func(1, 2.1);
-    cout << func(1, 2) << endl;
-    cout << func(1, 2.1) << endl;
-
-    int &&ref1 = func(1, 99);
-    int &&ref2 = 66;
-    cout << ref2 << endl;
-    cout << ref1 << endl;
-
-    return 0;
+// 内联和嵌套命名空间
+// 命名空间的作用，防止不同的库、文件使用同名的类、函数
+int main()
+{
+    // 内联的命名空间的成员，可以当做父空间的成员来使用
+    Parent::foo();
+    // 并且这种inline可以传递
+    Parent::Child1::foo2();
 }
