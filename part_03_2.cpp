@@ -42,9 +42,8 @@ int main () {
     // 5、auto声明变量语法糖
     auto num1{100};
     // auto num2{200, 300}; 运行异常
-
     auto arr1 = {100, 200 , 300 , 400 , 500 , 600 , 700 , 800 , 900};
-
+    auto arr2 = {999}; // 一个元素也是list
     cout << *(arr1.begin() + 1) << endl;
-    // auto num2 = {200, 3.14};
+    cout << *arr2.begin() << endl;
 }
