@@ -51,8 +51,22 @@ void funcE() {
     printf("%d", strlen(str));
 }
 
+
+namespace A {
+    namespace B {
+        void functionA () {
+            cout << "A::functionA" << endl;
+        }
+
+        void functionB () {
+            cout << "B::functionB" << endl;
+            ::funcE();
+        }
+    }
+}
+
 // ±éÀúÆ÷
 int main() {
-    funcE();
+    A::B::functionB();
     return 0;
 }
