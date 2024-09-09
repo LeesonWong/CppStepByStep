@@ -36,5 +36,4 @@ int main() {
 
     // 3、静态成员常量，因为允许静态成员常量在声明时就赋值，所以也可以用auto推导
     // cout << Foo::home << endl;
-    return 0;
 }

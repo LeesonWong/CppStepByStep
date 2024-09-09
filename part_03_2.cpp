@@ -7,6 +7,20 @@
 
 using namespace std;
 
+class Person {};
+
+// 编译失败
+// auto sum () {
+//     bool res = true;
+//
+//     if (res) {
+//         return 0;
+//     } else {
+//         long long num = 10;
+//         return num;
+//     }
+// }
+
 // auto的推导规则
 int main () {
     // 1、如果auto声明的变量是按值初始化，忽略CV限定符，即const和volatile
@@ -15,6 +29,11 @@ int main () {
     auto &ri = i; // const int&
     auto *pi = &i; // const int*
     const auto ii = i; // const int
+
+    const Person p;
+    auto ap = p;
+    auto &apr = p;
+    auto *app = &p;
 
     // 2、auto初始化时，如果对象是引用，引用属性被忽略
     int x = 10;
@@ -46,4 +65,7 @@ int main () {
     auto arr2 = {999}; // 一个元素也是list
     cout << *(arr1.begin() + 1) << endl;
     cout << *arr2.begin() << endl;
+
+    // 6、返回类型的推导 在分支语句（三目表达式）中按照范围最大的类型推断; 但是函数返回值必须确定类型，不提示，但是编译失败
+    // cout << sum() << endl;
 }
