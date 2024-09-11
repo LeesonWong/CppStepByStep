@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 using namespace std;
 
 #define PRINT_L(X) std::cout << sizeof(X) << std::endl
@@ -31,7 +32,7 @@ int main () {
     std::cout << "--------------------print range--------------------" << std::endl;
 
     // 获取类型的范围
-    std::cout << std::numeric_limits<int>::min() << std::endl;
+    std::cout << numeric_limits<int>::min() << std::endl;
     std::cout << std::numeric_limits<int>::max() << std::endl;
 
     std::cout << std::numeric_limits<short>::min() << std::endl;
