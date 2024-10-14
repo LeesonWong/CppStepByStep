@@ -20,9 +20,9 @@ int main() {
     const int c_a = 10;
     const int c_b = 20;
     cout << "局部const常量c_a地址：" << &c_a << endl;
+    char* str = "Hello World!";
     cout << "局部const常量c_b地址：" << &c_b << endl;
 
-    char* str = "Hello World!";
     cout << "字符串变量str地址：" << &str << endl;
 
     // 全局变量

@@ -48,3 +48,41 @@ int main(){
 
 函数模板的具体化
 函数名与参数列表、返回值都类似，具体化某个函数
+
+
+类模板
+
+自动类型推导
+自动类型推导h和显式指定类型，是指在调用传参时要不要指定类型 C++17及以上版本都是不需要的
+```c++
+template <class NameType, class AgeType>
+class Person {
+public:
+    Person(NameType name, AgeType age) : name(name), age(age) {}
+    
+    void Show() {
+        cout << "Name: " << name << "\tAge: " << age << endl;
+    }
+private:
+    NameType name;
+    AgeType age;
+};
+
+// C++11
+Person p<string, int>("Wukong", 999);
+// C++17
+Person p("Wukong", 999);
+```
+
+成员函数的创建
+模板类中如果使用了模板的对象，在调用时才会判断是否有其成员函数
+
+
+
+模板类的继承
+类模板继承有两种办法
+一、指定模板类型
+二、子类也是模板类
+
+
+另一个比较类似的情况，是类外实例化方法，要额外声明template，与类上的写法相同

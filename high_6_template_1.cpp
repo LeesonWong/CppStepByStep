@@ -2,7 +2,7 @@
 using namespace std;
 
 template <typename T>
-T GetMax(T a, T b) {
+T GetMax(T a, T b = 5) {
     cout << typeid(a).name() << endl;
     return a > b ? a : b;
 }
@@ -64,9 +64,10 @@ void Swap(int& t1, int& t2) {
 }
 
 int main(){
-    // int a{ 1 };
-    // int b{ 2 };
-    // std::cout << "int max(a, b) : " << ::GetMax(a, b) << '\n';
+    int a{ 1 };
+    int b{ 2 };
+    std::cout << "int max(a, b) : " << ::GetMax(a, b) << '\n';
+    std::cout << "int max(a, b) : " << ::GetMax(a) << '\n';
     // std::cout << "double max(a, b) : " << ::GetMax<double>(a, b) << '\n';
     //
     // Test t1{ 10 };
@@ -83,12 +84,12 @@ int main(){
     //     cout << s << endl;
     // }
 
-    CGirl girl(1);
-    CGirl girl1(2);
-    Swap(girl, girl1);
-
-    int a = 10;
-    int b = 20;
-    Swap(a, b);
+    // CGirl girl(1);
+    // CGirl girl1(2);
+    // Swap(girl, girl1);
+    //
+    // int a = 10;
+    // int b = 20;
+    // Swap(a, b);
 
 }
