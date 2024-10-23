@@ -33,8 +33,22 @@ void read() {
     }
 }
 
+class Car {
+public:
+    string name;
+
+    void operator()() const {
+        cout << "name: " << name << endl;
+    }
+};
+
+void oper() {
+    Car car;
+    car.name = "Hello World!";
+    car();
+}
 
 int main() {
-    read();
+    oper();
     cout << "OVER" << endl;
 }
